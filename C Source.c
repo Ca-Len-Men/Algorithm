@@ -14,11 +14,11 @@ Cần thêm 2 mảng một chiều ( asc, des )
 
 Bước 1 : Gán mảng asc, duyệt từ 0 -> n - 1
     - Phần tử đầu tiên mang giá trị 1
-    - Phần tử thứ i : nếu asc[i] > asc[i - 1] thì asc[i] = asc[i - 1] + 1, ngược lại thì asc[i] = 1
+    - Phần tử thứ i : nếu a[i] > a[i - 1] thì asc[i] = asc[i - 1] + 1, ngược lại thì asc[i] = 1
 
 Bước 2 : Gán mảng des, duyệt từ n - 1 -> 0
     - Phần tử thứ n - 1 mang giá trị 1
-    - Phần tử thứ i : nếu des[i] > des[i + 1] thì des[i] = des[i + 1] + 1, ngược lại thì des[i] = 1
+    - Phần tử thứ i : nếu a[i] > a[i + 1] thì des[i] = des[i + 1] + 1, ngược lại thì des[i] = 1
     
 Kết quả bài toán :
     - Là một mảng có phần tử thứ i bằng tổng giá trị của asc[i], des[i] trừ đi 1
