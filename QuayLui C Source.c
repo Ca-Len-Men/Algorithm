@@ -1,5 +1,16 @@
-/*
+/*Hướng dẫn
+Input : 3 4
+1 2 4 5
+3 1 4 2
+2 3 4 5
+Output: 14
+Giải thích Output :
+- Con gà lần lượt đi qua các cột sau : 4 3 4
+- Ô (1, 4) có giá trị 5, ô (2, 3) có giá trị 4, ô (3, 4) có giá trị 5
+- Tổng số hạt thóc nhiều nhất mà gà có thể ăn : 5 + 4 + 5 = 14
 
+SỬ DỤNG THUẬT TOÁN : QUAY LUI
+- Để tìm được đường đi có nhiều số thóc nhất, ta duyệt qua tất cả những trường hợp mà gà con có thể đi để tìm được đường đi có nhiều thóc nhất
 */
 
 #include<stdio.h>
