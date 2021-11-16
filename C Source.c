@@ -1,60 +1,78 @@
 /*Hướng dẫn
-Input : 1 2 3 4 3 3 1
-Output: 1 2 3 5 1 2 1
+Input : 3 4
+1 2 4 5
+3 1 4 2
+2 3 4 5
+Output: 14
 
 Giải thích Output :
-- Ở phần tử thứ 3 ( mang giá trị 4 ) : bên trái có dãy con 1 2 3 tăng dần, bên phải có dãy con 3 giảm dần ( tất cả nhỏ hơn 4 )
-- Như vậy, độ dốc của phần tử thứ 3 ( mang giá trị 4 ) bằng tổng độ dài của DÃY CON TĂNG BÊN TRÁI dài nhất và DÃY CON GIẢM BÊN PHẢI dài nhất cộng thêm 1.
-- 3 + 1 + 1 = 5
+- Con gà lần lượt đi qua các cột sau : 4 3 4
+- Ô (1, 4) có giá trị 5, ô (2, 3) có giá trị 4, ô (3, 4) có giá trị 5
+- Tổng số hạt thóc nhiều nhất mà gà có thể ăn : 5 + 4 + 5 = 14
 
 SỬ DỤNG THUẬT TOÁN : QUY HOẠCH ĐỘNG
-Cần thêm 2 mảng một chiều ( asc, des )
-- Mảng một chiều asc : mỗi phần tử thể hiện chiều dài của một dãy con tăng ( từ trái sang phải )
-- Mảng một chiều des : mỗi phần tử thể hiện chiều dài của một dãy con giảm ( từ phải sang trái )
+Cần một mảng hai chiều gồm n dòng m cột : QHD[][]
 
-Bước 1 : Gán mảng asc, duyệt từ 0 -> n - 1
-    - Phần tử đầu tiên mang giá trị 1
-    - Phần tử thứ i : nếu a[i] > a[i - 1] thì asc[i] = asc[i - 1] + 1, ngược lại thì asc[i] = 1
+Bước 1 : Gán dòng đầu tiên của QHD bằng với dòng đầu của a
 
-Bước 2 : Gán mảng des, duyệt từ n - 1 -> 0
-    - Phần tử thứ n - 1 mang giá trị 1
-    - Phần tử thứ i : nếu a[i] > a[i + 1] thì des[i] = des[i + 1] + 1, ngược lại thì des[i] = 1
+Bước 2 : Gán giá trị cho các dòng tiếp theo
+    - Ở dòng thứ i, gán mỗi cột j như sau :
+        + Tạo biến max là giá trị lớn nhất của QHD[i - 1][j - 1], QHD[i - 1][j], QHD[i - 1][j + 1]
+        + Gán : QHD[i][j] = max + a[i][j]
     
 Kết quả bài toán :
-    - Là một mảng có phần tử thứ i bằng tổng giá trị của asc[i], des[i] trừ đi 1
+    - Là phần tử lớn nhất trên dòng cuối cùng của QHD
 
-Với input sau : 1 2 3 4 3 3 1
-Mảng asc là   : 1 2 3 4 1 1 1
-Mảng des là   : 1 1 1 2 1 2 1
-Đáp án là     : 1 2 3 5 1 2 1
+Với input sau : 3 4
+1 2 4 5
+3 1 4 2
+2 3 4 5
+
+Bước 1 : tạo mảng hai chiều QHD, gán giá trị dòng đầu tiên của QHD
+1 2 4 5
+0 0 0 0
+0 0 0 0
+Bước 2 : gán theo công thức, cuối cùng ta được mảng hai chiều QHD là
+1  2  4  5
+5  5  9  7
+7 12 13 14
+Kết quả : 14
 */
 
 #include<stdio.h>
 
-int a[200000];
-int asc[200000], des[200000];
+int a[1000][1000];
+int QHD[1000][1000];
 
 int main()
 {
-    int n, i;
-    scanf("%d", &n);
-    for(i = 0; i < n; i++)
-        scanf("%d", a + i);
+    int n, m, i, j;
+    scanf("%d%d", &n, &m);
     
-    asc[0] = 1;
+    for(i = 0; i < n; i++)
+        for(j = 0; j < m; j++)
+            scanf("%d", &a[i][j]);
+    
+    for(i = 0; i < m; i++)
+    	QHD[0][i] = a[0][i];
+    
     for(i = 1; i < n; i++)
-        if(a[i] > a[i - 1])
-            asc[i] = asc[i - 1] + 1;
-    	else
-            asc[i] = 1;
+    	for(j = 0; j < m; j++)
+        {
+            int max = QHD[i - 1][j];
+            if(j >= 0 && max < QHD[i - 1][j - 1])
+                max = QHD[i - 1][j - 1];
+            if(j < m && max < QHD[i - 1][j + 1])
+                max = QHD[i - 1][j + 1];
+            
+            QHD[i][j] = max + a[i][j];
+        }
     
-    des[n - 1] = 1;
-    for(i = n - 2; i >= 0; i--)
-        if(a[i] > a[i + 1])
-            des[i] = des[i + 1] + 1;
-    	else
-            des[i] = 1;
-    
-    for(i = 0; i < n; i++)
-        printf("%d ", asc[i] + des[i] - 1);
+    int max = QHD[n - 1][0];
+    for(i = 1; i < m; i++)
+        if(max < QHD[n - 1][i])
+            max = QHD[n - 1][i];
+            
+    printf("%d", max);
+    return 0;
 }
