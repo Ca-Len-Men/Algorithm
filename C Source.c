@@ -1,78 +1,65 @@
 /*Hướng dẫn
-Input : 3 4
-1 2 4 5
-3 1 4 2
-2 3 4 5
-Output: 14
+Input : 5 2
+7 3 3 9 10
+Output: 12
 
 Giải thích Output :
-- Con gà lần lượt đi qua các cột sau : 4 3 4
-- Ô (1, 4) có giá trị 5, ô (2, 3) có giá trị 4, ô (3, 4) có giá trị 5
-- Tổng số hạt thóc nhiều nhất mà gà có thể ăn : 5 + 4 + 5 = 14
+- Tí chọn hai bài có vị trí lần lượt là 1, 4
+- Tổng số điểm Tí đạt được là : 3 + 9 = 12
 
-SỬ DỤNG THUẬT TOÁN : QUY HOẠCH ĐỘNG
-Cần một mảng hai chiều gồm n dòng m cột : QHD[][]
-
-Bước 1 : Gán dòng đầu tiên của QHD bằng với dòng đầu của a
-
-Bước 2 : Gán giá trị cho các dòng tiếp theo
-    - Ở dòng thứ i, gán mỗi cột j như sau :
-        + Tạo biến max là giá trị lớn nhất của QHD[i - 1][j - 1], QHD[i - 1][j], QHD[i - 1][j + 1]
-        + Gán : QHD[i][j] = max + a[i][j]
-    
-Kết quả bài toán :
-    - Là phần tử lớn nhất trên dòng cuối cùng của QHD
-
-Với input sau : 3 4
-1 2 4 5
-3 1 4 2
-2 3 4 5
-
-Bước 1 : tạo mảng hai chiều QHD, gán giá trị dòng đầu tiên của QHD
-1 2 4 5
-0 0 0 0
-0 0 0 0
-Bước 2 : gán theo công thức, cuối cùng ta được mảng hai chiều QHD là
-1  2  4  5
-5  5  9  7
-7 12 13 14
-Kết quả : 14
+SỬ DỤNG THUẬT TOÁN : QUAY LUI
+- Ta duyệt qua tất cả các trường hợp mà Tí có thể làm bài
+    + Ở mỗi trường hợp : không có hai bài liên tiếp nào có khoảng cách quá một
+    + Sau khi có được từng trường hợp, lưu lại điểm số lớn nhất trong các trường hợp đó
 */
 
 #include<stdio.h>
 
-int a[1000][1000];
-int QHD[1000][1000];
+int a[25];
+
+/*idx : lưu vị trí bài đang đứng
+n : độ dài mảng
+k : số bài có thể làm
+dachon : số bài đã được chọn
+luu_diem : lưu số điểm của các trường hợp
+max_diem : mỗi khi có được một trường hợp, cập nhật lại điểm số lớn nhất nếu có
+*/
+void QuayLui_maxdiem(int idx, int n, int k, int dachon, int luu_diem, int* max_diem);
 
 int main()
 {
-    int n, m, i, j;
-    scanf("%d%d", &n, &m);
-    
-    for(i = 0; i < n; i++)
-        for(j = 0; j < m; j++)
-            scanf("%d", &a[i][j]);
-    
-    for(i = 0; i < m; i++)
-    	QHD[0][i] = a[0][i];
-    
-    for(i = 1; i < n; i++)
-    	for(j = 0; j < m; j++)
-        {
-            int max = QHD[i - 1][j];
-            if(j >= 0 && max < QHD[i - 1][j - 1])
-                max = QHD[i - 1][j - 1];
-            if(j < m && max < QHD[i - 1][j + 1])
-                max = QHD[i - 1][j + 1];
-            
-            QHD[i][j] = max + a[i][j];
-        }
-    
-    int max = QHD[n - 1][0];
-    for(i = 1; i < m; i++)
-        if(max < QHD[n - 1][i])
-            max = QHD[n - 1][i];
-            
-    printf("%d", max);
-    return 0;
+	int n, k, i, max = 0;
+	scanf("%d%d", &n, &k);
+	for(i = 0; i < n; i++)
+		scanf("%d", a + i);
+		
+	QuayLui_maxdiem(0, n, k, 0, 0, &max);
+	printf("%d", max);
+		
+	return 0;
+}
+
+void QuayLui_maxdiem(int idx, int n, int k, int dachon, int luu_diem, int* max_diem)
+{
+	//Đã chọn đủ k bài, hàm kết thúc
+	if(dachon == k)
+	{
+        //Nếu số điểm đang lưu chưa phải là max, cập nhật lại nó
+		if(*max_diem < luu_diem)
+			*max_diem = luu_diem;
+		return;
+	}
+	
+	int i;
+	
+	//Chọn bài đầu tiên sẽ làm, chỉ có thể chọn bài thứ 0 hoặc 1
+	if(dachon == 0)
+	{
+		for(i = 0; i < 2; i++)
+			QuayLui_maxdiem(i, n, k, 1, a[i], max_diem);
+	}else{  //Chọn bài thứ dachon sẽ làm, chỉ có thể chọn một trong 2 bài kề bên phải
+		for(i = 1; i <= 2; i++)
+			if(idx + i < n)
+				QuayLui_maxdiem(idx + i, n, k, dachon + 1, luu_diem + a[idx + i], max_diem);
+	}
 }
