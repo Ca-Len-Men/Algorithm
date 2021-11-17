@@ -1,58 +1,184 @@
-/*Hướng dẫn
-Input : 1 2 3 4 3 3 1
-Output: 1 2 3 5 1 2 1
-Giải thích Output :
--Ở phần tử thứ 3 ( mang giá trị 4 ) : bên trái có dãy con 1 2 3 tăng dần, bên phải có dãy con 3 giảm dần ( tất cả nhỏ hơn 4 )
--Như vậy, độ dốc của phần tử thứ 3 ( mang giá trị 4 ) bằng tổng độ dài của DÃY CON TĂNG BÊN TRÁI dài nhất và DÃY CON GIẢM BÊN PHẢI dài nhất cộng thêm 1.
-- 3 + 1 + 1 = 5
-SỬ DỤNG THUẬT TOÁN : QUY HOẠCH ĐỘNG
-Cần thêm 2 mảng một chiều ( asc, des )
--Mảng một chiều asc : mỗi phần tử thể hiện chiều dài của một dãy con tăng ( từ trái sang phải )
--Mảng một chiều des : mỗi phần tử thể hiện chiều dài của một dãy con giảm ( từ phải sang trái )
-Bước 1 : Gán mảng asc, duyệt từ 0 -> n - 1
-    - Phần tử đầu tiên mang giá trị 1
-    - Phần tử thứ i : nếu a[i] > a[i - 1] thì asc[i] = asc[i - 1] + 1, ngược lại thì asc[i] = 1
-Bước 2 : Gán mảng des, duyệt từ n - 1 -> 0
-    - Phần tử thứ n - 1 mang giá trị 1
-    - Phần tử thứ i : nếu a[i] > a[i + 1] thì des[i] = des[i + 1] + 1, ngược lại thì des[i] = 1
-Kết quả bài toán :
-    -Là một mảng có phần tử thứ i bằng tổng giá trị của asc[i], des[i] trừ đi 1
-Với input sau : 1 2 3 4 3 3 1
-Mảng asc là   : 1 2 3 4 1 1 1
-Mảng des là   : 1 1 1 2 1 2 1
-Đáp án là     : 1 2 3 5 1 2 1
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<conio.h>
+#include<windows.h>
+
+/*
+#Tìm đường đi trong mê cung
+Input : 4 1 1
+.....*...
+****.*.*.
+.....*...
+***....*+
+
+Output :
+.....****
+****.****
+****.*...
+****...*.
+
+Giải thích :
+- Dòng đầu tiên gồm : số dòng của mê cung, vị trí x, y là điểm bắt đầu
+- N dòng tiếp theo thể hiện mê cung bằng mảng ký tự hai chiều
+
+Nhân vật : chỉ được phép di chuyển theo 4 hướng cơ bản
+          + Trái, phải, lên, xuống
+Mô tả mê cung :
+'.' : ô trống được phép đi
+'*' : bức tường
+'+' : đích đến
+
+#Yêu cầu : tìm ra đường đi ngắn nhất để đến được đích
 */
 
-#include<iostream>
-#include<array>
-using namespace std;
+const int MAXSIZE = 20;
+char maze[MAXSIZE][MAXSIZE + 1];
+bool array_tick[MAXSIZE][MAXSIZE];
+bool array_minlen[MAXSIZE][MAXSIZE];
 
-array<int, 2000000> a, asc, des;
+void BGcolor(int code);
+void copy_tick_to_minlen(int n);
+void print_maze(bool array_2D[][MAXSIZE], int n);
+void QuayLui_timduong(int x, int y, int n, int& isFinish_minlen);
 
-int main()
+int dem(bool array_2D[][MAXSIZE], int n);
+
+void main()
 {
-	int n;
-	cin >> n;
 
+	int n, x, y;
+	scanf("%d%d%d", &n, &x, &y);
+
+	//Gán mảng đánh dấu bằng false
+	for (int i = 0; i < MAXSIZE; i++)
+		for (int j = 0; j < MAXSIZE; j++)
+			array_tick[i][j] = false;
+
+	//Đọc mê cung
 	for (int i = 0; i < n; i++)
-		cin >> a[i];
+		scanf("%s", maze[i]);
+	
+	printf("\n\n");
+	int min = INT_MAX;
+	QuayLui_timduong(x - 1, y - 1, n, min);
 
-	asc[0] = 1;
-	for (int i = 1; i < n; i++)
-		if (a[i] > a[i - 1])
-			asc[i] = asc[i - 1] + 1;
-		else
-			asc[i] = 1;
+	printf("Duong di ngan nhat la\n");
+	print_maze(array_minlen, n);
+}
 
-	des[n - 1] = 1;
-	for (int i = n - 2; i >= 0; i--)
-		if (a[i] > a[i + 1])
-			des[i] = des[i + 1] + 1;
-		else
-			des[i] = 1;
+void QuayLui_timduong(int x, int y, int n, int& isFinish_minlen)
+{
+	//Nếu nhân vật đi ra khỏi mê cung, hàm kết thúc
+	if (x < 0 || y < 0 || x >= n || maze[x][y] == '\0')
+		return;
+	//Nếu vị trí đang đứng là bức tường, hàm kết thúc
+	if (maze[x][y] == '*')
+		return;
+	//Nếu vị trí đang đứng đã được đánh dấu, hàm kết thúc
+	if (array_tick[x][y])
+		return;
 
+	//Đánh dấu vị trí này đã đi qua
+	array_tick[x][y] = true;
+
+
+	printf("Xuat me cung\n");
+	//Xuất ra mê cung
 	for (int i = 0; i < n; i++)
-		cout << asc[i] + des[i] - 1 << " ";
+		printf("%s\n", maze[i]);
+	printf("\n\n");
+	print_maze(array_tick, n);
+	//getch();
+	Sleep(300);
+	system("cls");
 
-	return 0;
+	//Đã đến đích
+	if (maze[x][y] == '+')
+	{
+		int sum = dem(array_tick, n);
+
+		if (isFinish_minlen > sum)
+		{
+			isFinish_minlen = sum;
+			copy_tick_to_minlen(n);
+		}
+
+		//Trả lại dấu tích
+		array_tick[x][y] = false;
+		return;
+	}
+
+	/*
+	0 : qua phải
+	1 : qua trái
+	2 : đi lên
+	3 : đi xuống
+	*/
+
+	for (int i = 0; i < 4; i++)
+	{
+		//Chọn hướng
+		switch (i)
+		{
+			case 0://Qua phải
+				QuayLui_timduong(x, y + 1, n, isFinish_minlen);
+				break;
+
+			case 1://Qua trái
+				QuayLui_timduong(x, y - 1, n, isFinish_minlen);
+				break;
+
+			case 2://Đi lên
+				QuayLui_timduong(x - 1, y, n, isFinish_minlen);
+				break;
+
+			case 3://Đi xuống
+				QuayLui_timduong(x + 1, y, n, isFinish_minlen);
+				break;
+		}
+	}
+
+	//Trả lại vị trí đang đứng
+	array_tick[x][y] = false;
+}
+
+void copy_tick_to_minlen(int n)
+{
+	for (int i = 0; i < n; i++)
+		for (int j = 0; maze[i][j] != '\0'; j++)
+			array_minlen[i][j] = array_tick[i][j];
+}
+
+void print_maze(bool array_2D[][MAXSIZE], int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; maze[i][j] != '\0'; j++)
+			if (array_2D[i][j])
+			{
+				BGcolor(14);
+				putchar(1);
+			}
+			else {
+				BGcolor(7);
+				putchar(254);
+			}
+		putchar('\n');
+	}
+}
+
+int dem(bool array_2D[][MAXSIZE], int n)
+{
+	int sum = 0;
+	for (int i = 0; i < n; i++)
+		for (int j = 0; maze[i][j] != '\0'; j++)
+			if (array_2D[i][j])
+				sum++;
+	return sum;
+}
+
+void BGcolor(int code)
+{
+	HANDLE color = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(color, code);
 }
