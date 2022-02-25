@@ -1,13 +1,13 @@
 # Độ dài con dốc
-Cho dãy số nguyên `a` gồm `n` phần tử. Độ dốc của phần tử thứ `i` được tính như sau :
-- `l` là vị trí xa nhất bên trái `a[i]` sao cho các phần tử trong đoạn `[l, i]` tăng dần.
-- `r` là vị trí xa nhất bên phải `a[i]` sao cho các phần tử trong đoạn `[i, r]` giảm dần.
-- Độ dốc của phần tử thứ `i` bằng số phần tử trong đoạn `[l, r]`.
-- Hãy tính độ dốc của tất cả các phần tử trong dãy `a`.
+   Cho dãy số nguyên `a` gồm `n` phần tử. Độ dốc của phần tử thứ `i` được tính như sau :
+   - `l` là vị trí xa nhất bên trái `a[i]` sao cho các phần tử trong đoạn `[l, i]` tăng dần.
+   - `r` là vị trí xa nhất bên phải `a[i]` sao cho các phần tử trong đoạn `[i, r]` giảm dần.
+   - Độ dốc của phần tử thứ `i` bằng số phần tử trong đoạn `[l, r]`.
+   Hãy tính độ dốc của tất cả các phần tử trong dãy `a`.
 
 ## Chú ý:
-- Dãy sau đây là tăng dần : `1, 2, 3, 4, 5`.
-- Dãy sau đây không phải tăng dần : `1, 3, 3, 4, 5`.
+   - Dãy sau đây là tăng dần : `1, 2, 3, 4, 5`.
+   - Dãy sau đây không phải tăng dần : `1, 3, 3, 4, 5`.
 
 ## Đầu vào/Đầu ra:
 - **[Thời gian]**
@@ -26,3 +26,17 @@ Cho dãy số nguyên `a` gồm `n` phần tử. Độ dốc của phần tử t
    - `2 1 3 -7 5 8 8 4 6 -6`
 - **[Output]**
    - `2 1 3 1 2 3 2 1 3 1`
+
+# Giải bài tập
+   Tạo hai dãy `L` và `R` như sau :
+   - `L[i]` là độ dốc phía bên trái của phần tử `a[i]`
+   - `R[i]` là độ dốc phía bên phải của phần tử `a[i]`
+   Như vậy độ dốc của phần tử `a[i]` bằng `L[i] + R[i] - 1`
+   
+   Với `n = 10` và `a = [2, 1, 3, -7, 5, 8, 8, 4, 6, -6]`, ta có được hai dãy `L` và `R` sau :
+   - `L = [1, 1, 2, 1, 2, 3, 1, 1, 2, 1]`
+   - `R = [2 ,1 ,2 ,1 ,1 ,1 ,2 ,1 ,2 ,1]`
+   Như vậy ta sẽ được kết quả là `[2, 1, 3, 1, 2, 3, 2, 1, 3, 1]`
+   - **Độ phức tạp** : `O(n)`
+   
+   
