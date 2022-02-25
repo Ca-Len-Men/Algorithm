@@ -1,1 +1,14 @@
-![image 1](https://github.com/Ca-Len-Men/Data-Structure-and-Algorithm/blob/%C4%90%E1%BB%99-d%C3%A0i-con-d%E1%BB%91c/Pic1.png)
+# Algorithm Exercises
+> Math Problems Helping You Practice Algorithm
+
+**Collector: Cá Lên Men**
+
+![Algorithm Exercises](https://i.imgur.com/trrbLVm.png)
+
+## Basic
+- 
+
+## Medium
+- 
+
+## Hard
