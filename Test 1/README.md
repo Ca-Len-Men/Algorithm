@@ -14,8 +14,8 @@ Cho dãy số nguyên `a` gồm `n` phần tử. Độ dốc của phần tử t
    - 3s với Java và C#
    - 5s với Python, Go và JavaScript
 - **[Đầu vào]**
-    - Dòng đầu tiên là một số nguyên dương `n` ( `0 < n ≤ 10<sup>7<\sup>` ).
-    - Dòng thứ hai gồm `n` số nguyên dương `a[i]` ( `-10<sup>9<\sup> ≤ a[i] ≤ 10<sup>9<\sup>` ).
+    - Dòng đầu tiên là một số nguyên dương `n` ( `0 < n ≤ 10<sup>7</sup>` ).
+    - Dòng thứ hai gồm `n` số nguyên dương `a[i]` ( `-10<sup>9<\sup> ≤ a[i] ≤ 10<sup>9</sup>` ).
 - **[Đầu ra]** 
 
 
