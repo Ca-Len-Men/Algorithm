@@ -1,4 +1,4 @@
-# Độ dài con dốc
+# Tính tổng trên đoạn
    Cho dãy số nguyên `a` gồm `n` phần tử ( phần tử đầu tiên bắt đầu tại vị trí là `1` ). Với mỗi truy vấn được cho hai số nguyên dương `l` và `r`.
    Nhiệm vụ của bạn là tính tổng các phần tử trong đoạn `[l, r]`.
 
