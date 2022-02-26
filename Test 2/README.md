@@ -31,6 +31,6 @@
    - `4`
 
 # Giải bài tập
-   Tạo một dãy `b` thỏa mãn `b[0] = 0` và `b[i] = a[1] + a[2] + ... + a[i]`
-   Như vậy, tổng các phần tử `a[l] + ... + a[r] = ( a[1] + ... + a[l] + ... + a[r] ) - ( a[1] + ... + a[l - 1] ) = b[r] - b[l - 1]`
-   - **Độ phức tạp** : `O(s)`
+   Tạo một dãy `b` thỏa mãn `b[0] = 0` và `b[i] = a[1] + a[2] + ... + a[i]`.
+   Như vậy, tổng các phần tử `a[l] + ... + a[r] = ( a[1] + ... + a[l] + ... + a[r] ) - ( a[1] + ... + a[l - 1] ) = b[r] - b[l - 1]`.
+   - **Độ phức tạp** : `O(s)`.
