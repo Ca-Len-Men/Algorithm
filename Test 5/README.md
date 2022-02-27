@@ -1,7 +1,6 @@
 # Sắp xếp đặc biệt
    **Cho mảng số nguyên `a` gồm `n` phần tử.<br>
-   Hãy sắp xếp mảng `a` sao cho các phần tử dương ở đầu, các phần tử âm ở cuối, số 0 ở giữa và các phần tử dương tăng dần, các phần tử âm giảm dần.**
-
+   Với mỗi giá trị `k`, hãy tìm phần tử a<sub>i</sub> có chỉ số `i` nhỏ nhất thỏa mãn k ≤ a<sub>i</sub>, nếu không tìm thấy thì in ra `-1`.**
 
 ## Đầu vào/Đầu ra:
 - **[Thời gian]**
@@ -9,33 +8,28 @@
    - 3s với Java và C#
    - 5s với Python, Go và JavaScript
 - **[Đầu vào]**
-    - **Dòng đầu tiên là một số nguyên dương `n` ( 0 < n ≤ 10<sup>6</sup> ).**
-    - **Dòng thứ hai gồm `n` số nguyên dương a<sub>i</sub> ( -10<sup>9</sup> ≤ a<sub>i</sub> ≤ 10<sup>9</sup> ).**
+    - **Dòng đầu tiên là hai số nguyên dương `n` và `s` ( 0 < n ≤ 10<sup>6</sup>, 0 < s ≤ 10<sup>6</sup> ).**
+    - **Dòng thứ hai gồm `n` số nguyên a<sub>i</sub> ( -10<sup>9</sup> ≤ a<sub>i</sub> ≤ 10<sup>9</sup> ).**
+    - **`s` dòng tiếp theo, mỗi dòng là một số nguyên `k` ( -10<sup>9</sup> ≤ k ≤ 10<sup>9</sup> ).**
 - **[Đầu ra]** 
-    - **Một dòng duy nhất là mảng `a` đã được sắp xếp.**
+    - **In ra `s` dòng, mỗi dòng là phần tử tìm được ứng với giá trị `k` đã cho.**
 
 ## Ví dụ:
 - **[Input]**
-   - `10`
+   - `10 5`
    - `2 0 -5 8 -7 4 1 9 -8 0`
+   - `1`
+   - `3`
+   - `-5`
+   - `9`
+   - `10`
 - **[Output]**
-   - `1 2 4 8 9 0 0 -5 -7 -8`
+   - `2`
+   - `8`
+   - `2`
+   - `9`
+   - `-1`
 
 ## Giải bài tập
-   Hàm so sánh hai phần tử int Compare(a, b) :
-   - Trả về giá trị âm nếu `a < b`.
-   - Trả về giá trị dương nếu `a > b`.
-   - Trả về giá trị 0 nếu `a == b`.<br><br>
-   Xét hai số `a` và `b` :
-   - Nếu là hai số dương ( `a, b > 0` ) : số lớn hơn sẽ lớn hơn số còn lại.
-      - `a = 5` và `b = 7` : trả về -2 ( a < b ).
-      - `a = 6` và `b = 4` : trả về 2 ( a > b ).
-      - Như vậy ta trả về `a - b`.
-   - Còn lại : số bé hơn sẽ lớn hơn số còn lại.
-      - `a = -5` và `b = -7` : trả về -2 ( a < b ).
-      - `a = -3` và `b = 3` : trả về 6 ( a > b ).
-      -  `a = 0` và `b = -5` : trả về -5 ( a < b ).
-      -  `a = 3` và `b = 0` : trả về -3 ( a < b ).
-      -  Như vậy ta trả về `b - a`.
-   - Sử dụng các thuật toán có độ phức tạp `O(n log n)` để giải bài toán này.
-   - **Độ phức tạp : `O(n log n)`**
+   Xây dựng cây nhị phân như sau :
+   - **Độ phức tạp : `O(s log n)`**
