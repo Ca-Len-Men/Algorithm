@@ -34,9 +34,18 @@
    Xây dựng cây nhị phân như sau :
    ![Binary Search Tree](https://github.com/Ca-Len-Men/Algorithm/blob/%C4%90%E1%BB%99-d%C3%A0i-con-d%E1%BB%91c/Test%205/Picture.png)
    - Với `k = 1` :
-      - .
+        - Bắt đầu với nút 1 : k bé hơn nút 1 => tồn tại phần tử lớn hơn bằng k.
+        - Kiểm tra nút 2 : k bé hơn nút 2 => đi vào nút 2
+        - Kiểm tra nút 4 : k bé hơn nút 4 => đi vào nút 4
+        - Kiểm tra nút 6 : k bé hơn nút 6 => đi vào nút 6
+        - Phần tử 2 : k bé hơn 2 => In ra 2
    - Với `k = 9` :
-      - .
+      	- Bắt đầu với nút 1 : k bé hơn nút 1 => tồn tại phần tử lớn hơn bằng k.
+        - Kiểm tra nút 2 : k lớn hơn nút 2
+        - Kiểm tra nút 3 : k bé hơn bằng nút 3 => đi vào nút 3
+        - Kiểm tra nút 5 : k bé hơn bằng nút 5 => đi vào nút 5
+        - Kiểm tra nút 8 : k lớn hơn nút 8
+        - Kiểm tra phần tử 9 : k bé hơn bằng 9 => In ra 9
    - Với `k = 10` :
-      - .
+        - Bắt đầu với nút 1 : k lớn hơn nút 1 => Không tồn tại, in ra -1.
    - **Độ phức tạp : `O(s log n)`**
