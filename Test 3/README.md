@@ -1,9 +1,5 @@
-# Độ dài con dốc
-   Cho dãy số nguyên `a` gồm `n` phần tử. Độ dốc của phần tử thứ `i` được tính như sau :
-   - `l` là vị trí xa nhất bên trái `a[i]` sao cho các phần tử trong đoạn `[l, i]` tăng dần.
-   - `r` là vị trí xa nhất bên phải `a[i]` sao cho các phần tử trong đoạn `[i, r]` giảm dần.
-   - Độ dốc của phần tử thứ `i` bằng số phần tử trong đoạn `[l, r]`.
-   Hãy tính độ dốc của tất cả các phần tử trong dãy `a`.
+# Phân tích số chẵn
+   Cho một số nguyên dương `n`. Hãy tìm giá trị `k` lớn nhất thỏa mãn `a``b`
 
 ## Chú ý:
    - Dãy sau đây là tăng dần : `1, 2, 3, 4, 5`.
