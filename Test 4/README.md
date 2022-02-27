@@ -1,13 +1,7 @@
-# Độ dài con dốc
-   Cho dãy số nguyên `a` gồm `n` phần tử. Độ dốc của phần tử thứ `i` được tính như sau :
-   - `l` là vị trí xa nhất bên trái `a[i]` sao cho các phần tử trong đoạn `[l, i]` tăng dần.
-   - `r` là vị trí xa nhất bên phải `a[i]` sao cho các phần tử trong đoạn `[i, r]` giảm dần.
-   - Độ dốc của phần tử thứ `i` bằng số phần tử trong đoạn `[l, r]`.
-   Hãy tính độ dốc của tất cả các phần tử trong dãy `a`.
+# Sắp xếp đặc biệt
+   **Cho mảng số nguyên `a` gồm `n` phần tử.<br>
+   Hãy sắp xếp mảng `a` sao cho các phần tử dương ở đầu, các phần tử âm ở cuối, số 0 ở giữa và các phần tử dương tăng dần, các phần tử âm giảm dần.**
 
-## Chú ý:
-   - Dãy sau đây là tăng dần : `1, 2, 3, 4, 5`.
-   - Dãy sau đây không phải tăng dần : `1, 3, 3, 4, 5`.
 
 ## Đầu vào/Đầu ra:
 - **[Thời gian]**
@@ -15,26 +9,33 @@
    - 3s với Java và C#
    - 5s với Python, Go và JavaScript
 - **[Đầu vào]**
-    - **Dòng đầu tiên là một số nguyên dương `n` ( 0 < n ≤ 10<sup>7</sup> ).**
-    - **Dòng thứ hai gồm `n` số nguyên dương `a[i]` ( -10<sup>9</sup> ≤ a[i] ≤ 10<sup>9</sup> ).**
+    - **Dòng đầu tiên là một số nguyên dương `n` ( 0 < n ≤ 10<sup>6</sup> ).**
+    - **Dòng thứ hai gồm `n` số nguyên dương a<sub>i</sub> ( -10<sup>9</sup> ≤ a<sub>i</sub> ≤ 10<sup>9</sup> ).**
 - **[Đầu ra]** 
-    - Một dòng duy nhất là độ dốc của tất cả phần tử trong dãy `a`.
+    - **Một dòng duy nhất là mảng `a` đã được sắp xếp.**
 
 ## Ví dụ:
 - **[Input]**
    - `10`
-   - `2 1 3 -7 5 8 8 4 6 -6`
+   - `2 0 -5 8 -7 4 1 9 -8 0`
 - **[Output]**
-   - `2 1 3 1 2 3 2 1 3 1`
+   - `1 2 4 8 9 0 0 -5 -7 -8`
 
-# Giải bài tập
-   Tạo hai dãy `L` và `R` như sau :
-   - `L[i]` là độ dốc phía bên trái của phần tử `a[i]`
-   - `R[i]` là độ dốc phía bên phải của phần tử `a[i]`
-   Như vậy độ dốc của phần tử `a[i]` bằng `L[i] + R[i] - 1`
-   
-   Với `n = 10` và `a = [2, 1, 3, -7, 5, 8, 8, 4, 6, -6]`, ta có được hai dãy `L` và `R` sau :
-   - `L = [1, 1, 2, 1, 2, 3, 1, 1, 2, 1]`
-   - `R = [2 ,1 ,2 ,1 ,1 ,1 ,2 ,1 ,2 ,1]`
-   Như vậy ta sẽ được kết quả là `[2, 1, 3, 1, 2, 3, 2, 1, 3, 1]`
-   - **Độ phức tạp** : `O(n)`
+## Giải bài tập
+   Hàm so sánh hai phần tử int Compare(a, b) :
+   - Trả về giá trị âm nếu `a < b`.
+   - Trả về giá trị dương nếu `a > b`.
+   - Trả về giá trị 0 nếu `a == b`.<br><br>
+   Xét hai số `a` và `b` :
+   - Nếu là hai số dương ( `a, b > 0` ) : số lớn hơn sẽ lớn hơn số còn lại.
+      - `a = 5` và `b = 7` : trả về -2 ( a < b ).
+      - `a = 6` và `b = 4` : trả về 2 ( a > b ).
+      - Như vậy ta trả về `a - b`.
+   - Còn lại : số bé hơn sẽ lớn hơn số còn lại.
+      - `a = -5` và `b = -7` : trả về -2 ( a < b ).
+      - `a = -3` và `b = 3` : trả về 6 ( a > b ).
+      -  `a = 0` và `b = -5` : trả về -5 ( a < b ).
+      -  `a = 3` và `b = 0` : trả về -3 ( a < b ).
+      -  Như vậy ta trả về `b - a`.
+   - Sử dụng các thuật toán có độ phức tạp `O(n log n)` để giải bài toán này.
+   - **Độ phức tạp : `O(n log n)`**
