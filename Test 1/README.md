@@ -29,9 +29,9 @@
 
 # Giải bài tập
    Tạo hai dãy `L` và `R` như sau :
-   - `L[i]` là độ dốc phía bên trái của phần tử a<sub>i</sub>
-   - `R[i]` là độ dốc phía bên phải của phần tử a<sub>i</sub><br>
-   Như vậy độ dốc của phần tử a<sub>i</sub> bằng `L[i] + R[i] - 1`.<br>
+   - L<sub>i</sub> là độ dốc phía bên trái của phần tử a<sub>i</sub>
+   - R<sub>i</sub> là độ dốc phía bên phải của phần tử a<sub>i</sub><br>
+   Như vậy độ dốc của phần tử a<sub>i</sub> bằng L<sub>i</sub> + R<sub>i</sub> - 1.<br>
    Với `n = 10` và `a = [2, 1, 3, -7, 5, 8, 8, 4, 6, -6]`, ta có được hai dãy `L` và `R` sau :
    - `L = [1, 1, 2, 1, 2, 3, 1, 1, 2, 1]`
    - `R = [2 ,1 ,2 ,1 ,1 ,1 ,2 ,1 ,2 ,1]`
