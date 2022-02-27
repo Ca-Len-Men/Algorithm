@@ -47,5 +47,6 @@
         - Kiểm tra nút 8 : k lớn hơn nút 8
         - Kiểm tra phần tử 9 : k bé hơn bằng 9 => In ra 9
    - Với `k = 10` :
-        - Bắt đầu với nút 1 : k lớn hơn nút 1 => Không tồn tại, in ra -1.
+        - Bắt đầu với nút 1 : k lớn hơn nút 1 => Không tồn tại, in ra -1.<br>
+   - Chi phí cho mỗi lần tìm kiếm : `O(log n)`
    - **Độ phức tạp : `O(s log n)`**
