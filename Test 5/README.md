@@ -1,4 +1,4 @@
-# Sắp xếp đặc biệt
+# Tìm kiếm trên cây nhị phân
    **Cho mảng số nguyên `a` gồm `n` phần tử.<br>
    Với mỗi giá trị `k`, hãy tìm phần tử a<sub>i</sub> có chỉ số `i` nhỏ nhất thỏa mãn k ≤ a<sub>i</sub>, nếu không tìm thấy thì in ra `-1`.**
 
@@ -32,4 +32,11 @@
 
 ## Giải bài tập
    Xây dựng cây nhị phân như sau :
+   ![Binary Search Tree](https://github.com/Ca-Len-Men/Algorithm/blob/%C4%90%E1%BB%99-d%C3%A0i-con-d%E1%BB%91c/Test%205/Picture.png)
+   - Với `k = 1` :
+      - .
+   - Với `k = 9` :
+      - .
+   - Với `k = 10` :
+      - .
    - **Độ phức tạp : `O(s log n)`**
