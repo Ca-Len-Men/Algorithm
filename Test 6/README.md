@@ -42,11 +42,10 @@
       - Để đi đến ô a<sub>i, j</sub>, con gà phải đi qua một trong ba ô a<sub>i, j-1</sub>, a<sub>i-1, j-1</sub>, a<sub>i+1, j-1</sub>.
       - Như vậy b<sub>i, j</sub> được tính bằng cách lấy giá trị lớn nhất của ba ô trước đó cộng cho a<sub>i, j</sub>.<br>
    
-   Với `input` của đề bài, ta có được bảng `b` như sau :
-      - `2 6  14 15 24`
-      - `6 9  11 21 26`
-      - `8 8  13 14 22`
-      - `5 11 14 15 21`<br>
-      
+   Với `input` của đề bài, ta có được bảng `b` như sau :<br>
+   `2 6  14 15 24`<br>
+   `6 9  11 21 26`<br>
+   `8 8  13 14 22`<br>
+   `5 11 14 15 21`<br>
    Như vậy ta có số lượng thóc nhiều nhất là `26`.
    - **Độ phức tạp : `O(n x m)`**
