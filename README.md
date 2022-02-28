@@ -3,7 +3,7 @@
 
 **Writer : Cá Lên Men ✍️**
 
-![Algorithm Exercises](https://github.com/Ca-Len-Men/Algorithm/tree/Learning-Test/BGA.png)
+![Algorithm Exercises](https://github.com/Ca-Len-Men/Algorithm/blob/Learning-Test/BGA.png)
 
 ## Easy
 - [Phân tích số chẵn](https://github.com/Ca-Len-Men/Algorithm/tree/Learning-Test/Test%203)
