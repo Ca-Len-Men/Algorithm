@@ -3,15 +3,15 @@
 
 **Writer : Cá Lên Men ✍️**
 
-![Algorithm Exercises](https://github.com/Ca-Len-Men/Algorithm/blob/%C4%90%E1%BB%99-d%C3%A0i-con-d%E1%BB%91c/BGA.png)
+![Algorithm Exercises](https://github.com/Ca-Len-Men/Algorithm/tree/Learning-Test/BGA.png)
 
 ## Easy
-- [Phân tích số chẵn](https://github.com/Ca-Len-Men/Algorithm/tree/%C4%90%E1%BB%99-d%C3%A0i-con-d%E1%BB%91c/Test%203)
+- [Phân tích số chẵn](https://github.com/Ca-Len-Men/Algorithm/tree/Learning-Test/Test%203)
 
 ## Medium
-- [Độ dài con dốc](https://github.com/Ca-Len-Men/Algorithm/tree/%C4%90%E1%BB%99-d%C3%A0i-con-d%E1%BB%91c/Test%201)
-- [Tính tổng trên đoạn](https://github.com/Ca-Len-Men/Algorithm/tree/%C4%90%E1%BB%99-d%C3%A0i-con-d%E1%BB%91c/Test%202)
-- [Sắp xếp đặc biệt](https://github.com/Ca-Len-Men/Algorithm/tree/%C4%90%E1%BB%99-d%C3%A0i-con-d%E1%BB%91c/Test%204)
+- [Độ dài con dốc](https://github.com/Ca-Len-Men/Algorithm/tree/Learning-Test/Test%201)
+- [Tính tổng trên đoạn](https://github.com/Ca-Len-Men/Algorithm/tree/Learning-Test/Test%202)
+- [Sắp xếp đặc biệt](https://github.com/Ca-Len-Men/Algorithm/tree/Learning-Test/Test%204)
 
 ## Hard
-- [Tìm kiếm trên cây nhị phân](https://github.com/Ca-Len-Men/Algorithm/tree/%C4%90%E1%BB%99-d%C3%A0i-con-d%E1%BB%91c/Test%205)
+- [Tìm kiếm trên cây nhị phân](https://github.com/Ca-Len-Men/Algorithm/tree/Learning-Test/Test%205)
