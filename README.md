@@ -12,6 +12,7 @@
 - [Độ dài con dốc](https://github.com/Ca-Len-Men/Algorithm/tree/Learning-Test/Test%201)
 - [Tính tổng trên đoạn](https://github.com/Ca-Len-Men/Algorithm/tree/Learning-Test/Test%202)
 - [Sắp xếp đặc biệt](https://github.com/Ca-Len-Men/Algorithm/tree/Learning-Test/Test%204)
+- [Gà con ăn thóc](https://github.com/Ca-Len-Men/Algorithm/tree/Learning-Test/Test%206)
 
 ## Hard
 - [Tìm kiếm trên cây nhị phân](https://github.com/Ca-Len-Men/Algorithm/tree/Learning-Test/Test%205)
