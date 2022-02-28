@@ -1,7 +1,7 @@
 # Gà con ăn thóc
-   **Trên một sân chữ nhật gồm `n` dòng, `m` cột, số lượng hạt thóc trên mỗi ô là a<sub>i, j</sub>.
-   Một con gà bắt đầu tại vị trí bất kì trong cột `1` và sẽ di chuyển sang cột `n`.
-   Ở ô a<sub>i, j</sub>, con gà có thể di chuyển sang một trong ba ô a<sub>i, j+1</sub>, a<sub>i-1, j+1</sub>, a<sub>i+1, j+1</sub>.
+   **Trên một sân chữ nhật gồm `n` dòng, `m` cột, số lượng hạt thóc trên mỗi ô là a<sub>i, j</sub>.<br>
+   Một con gà bắt đầu tại vị trí bất kì trong cột `1` và sẽ di chuyển sang cột `n`.<br>
+   Ở ô a<sub>i, j</sub>, con gà có thể di chuyển sang một trong ba ô a<sub>i, j+1</sub>, a<sub>i-1, j+1</sub>, a<sub>i+1, j+1</sub>.<br>
    Hãy tính số hạt thóc nhiều nhất mà con gà có thể ăn sau khi di chuyển từ cột `1` sang cột `n`**
    
 ## Lưu ý
@@ -27,7 +27,7 @@
    - `5 3 3 1 6`
 - **[Output]**
    - `26`
-- **[Giải thích]**
+- **[Giải thích]**<br>
     Con đường mà gà sẽ đi như sau :
     - `0 0 5 0 0`
     - `0 1 0 7 5`
@@ -42,9 +42,9 @@
       - Để đi đến ô a<sub>i, j</sub>, con gà phải đi qua một trong ba ô a<sub>i, j-1</sub>, a<sub>i-1, j-1</sub>, a<sub>i+1, j-1</sub>.
       - Như vậy b<sub>i, j</sub> được tính bằng cách lấy giá trị lớn nhất của ba ô trước đó cộng cho a<sub>i, j</sub>.<br>
     Với `input` của đề bài, ta có được bảng `b` như sau :
-    - `2 6  14 15 24`
-    - `6 9  11 21 26`
-    - `8 8  13 14 22`
-    - `5 11 14 15 21`<br>
+      - `2 6  14 15 24`
+      - `6 9  11 21 26`
+      - `8 8  13 14 22`
+      - `5 11 14 15 21`<br>
     Như vậy ta có số lượng thóc nhiều nhất là `26`.
    - **Độ phức tạp : `O(n x m)`**
