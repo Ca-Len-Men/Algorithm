@@ -7,6 +7,7 @@
 
 ## Easy
 - [Phân tích số chẵn](https://github.com/Ca-Len-Men/Algorithm/tree/Learning-Test/Test%203)
+- [Di chuyển phần tử](https://github.com/Ca-Len-Men/Algorithm/tree/Learning-Test/Test%207)
 
 ## Medium
 - [Độ dài con dốc](https://github.com/Ca-Len-Men/Algorithm/tree/Learning-Test/Test%201)
