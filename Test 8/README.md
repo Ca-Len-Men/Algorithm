@@ -27,4 +27,4 @@
 
 ## Giải bài tập
    - Lặp qua tất cả các trường hợp và tìm ra số điểm tối đa : sử dụng thuật toán Vét cạn ( Quay lui )
-   - **Độ phức tạp : `O(2`<sup>n</sup>`)`**
+   - **Độ phức tạp : `O(2^n)`**
