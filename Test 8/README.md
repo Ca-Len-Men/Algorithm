@@ -1,6 +1,8 @@
-# Sắp xếp đặc biệt
-   **Cho mảng số nguyên `a` gồm `n` phần tử.<br>
-   Hãy sắp xếp mảng `a` sao cho các phần tử dương ở đầu, các phần tử âm ở cuối, số 0 ở giữa và các phần tử dương tăng dần, các phần tử âm giảm dần.**
+# Bài thi
+   **Kỳ thi HSG dành cho lớp 10 mà Tí tham gia có `n` câu, câu thứ `i` có số điểm là a<sub>i</sub>.<br>
+   Quy định của cuộc thi là không cho phép thí sinh bỏ hai câu liên tiếp.<br>
+   Nếu bỏ qua câu thứ `i` và `i + 1` thì các câu thứ `i` trở đi sẽ không được tính điểm.<br>
+   Và khả năng của Tí chỉ có thể làm được `k` câu. Hãy giúp Tí tính số điểm cao nhất đạt được.**
 
 
 ## Đầu vào/Đầu ra:
@@ -9,33 +11,20 @@
    - 3s với Java và C#
    - 5s với Python, Go và JavaScript
 - **[Đầu vào]**
-    - **Dòng đầu tiên là một số nguyên dương `n` ( 0 < n ≤ 10<sup>6</sup> ).**
-    - **Dòng thứ hai gồm `n` số nguyên dương a<sub>i</sub> ( -10<sup>9</sup> ≤ a<sub>i</sub> ≤ 10<sup>9</sup> ).**
+    - **Dòng đầu tiên gồm hai số nguyên dương `n` và `k` ( 0 < k ≤ n ≤ 25 ).**
+    - **Dòng thứ hai gồm `n` số nguyên dương a<sub>i</sub> ( 0 < a<sub>i</sub> ≤ 10<sup>3</sup> ).**
 - **[Đầu ra]** 
-    - **Một dòng duy nhất là mảng `a` đã được sắp xếp.**
+    - **Một dòng duy nhất là điểm số tối đa Tí đạt được.**
 
 ## Ví dụ:
 - **[Input]**
-   - `10`
-   - `2 0 -5 8 -7 4 1 9 -8 0`
+   - `6 3`
+   - `2 1 3 5 1 3`
 - **[Output]**
-   - `1 2 4 8 9 0 0 -5 -7 -8`
+   - `10`
+- **[Giải thích]**
+   - Tí làm được ba câu có số điểm là `2 + 3 + 5 = 10`
 
 ## Giải bài tập
-   Hàm so sánh hai phần tử int Compare(a, b) :
-   - Trả về giá trị âm nếu `a < b`.
-   - Trả về giá trị dương nếu `a > b`.
-   - Trả về giá trị 0 nếu `a == b`.<br><br>
-   Xét hai số `a` và `b` :
-   - Nếu là hai số dương ( `a, b > 0` ) : số lớn hơn sẽ lớn hơn số còn lại.
-      - `a = 5` và `b = 7` : trả về -2 ( a < b ).
-      - `a = 6` và `b = 4` : trả về 2 ( a > b ).
-      - Như vậy ta trả về `a - b`.
-   - Còn lại : số bé hơn sẽ lớn hơn số còn lại.
-      - `a = -5` và `b = -7` : trả về -2 ( a < b ).
-      - `a = -3` và `b = 3` : trả về 6 ( a > b ).
-      -  `a = 0` và `b = -5` : trả về -5 ( a < b ).
-      -  `a = 3` và `b = 0` : trả về -3 ( a < b ).
-      -  Như vậy ta trả về `b - a`.
-   - Sử dụng các thuật toán có độ phức tạp `O(n log n)` để giải bài toán này.
-   - **Độ phức tạp : `O(n log n)`**
+   - Lặp qua tất cả các trường hợp và tìm ra số điểm tối đa : sử dụng thuật toán Vét cạn ( Quay lui )
+   - **Độ phức tạp : `O(2`<sup>n</sup>`)`**
