@@ -1,7 +1,7 @@
-# Sắp xếp đặc biệt
-   **Cho mảng số nguyên `a` gồm `n` phần tử.<br>
-   Hãy sắp xếp mảng `a` sao cho các phần tử dương ở đầu, các phần tử âm ở cuối, số 0 ở giữa và các phần tử dương tăng dần, các phần tử âm giảm dần.**
-
+# Xóa phần tử
+   **Cho mảng số nguyên `a` gồm `n` phần tử. Bạn được phép xóa phần tử lớn nhất hoặc nhỏ nhất trong mảng.
+   Hãy tìm cách dùng ít lần xóa nhất sao cho tổng các phần tử còn lại bằng `0`**
+   [DELARR](https://luyencode.net/problem/DELARR)
 
 ## Đầu vào/Đầu ra:
 - **[Thời gian]**
@@ -9,33 +9,25 @@
    - 3s với Java và C#
    - 5s với Python, Go và JavaScript
 - **[Đầu vào]**
-    - **Dòng đầu tiên là một số nguyên dương `n` ( 0 < n ≤ 10<sup>6</sup> ).**
+    - **Dòng đầu tiên là một số nguyên dương `n` ( 0 < n ≤ 10<sup>5</sup> ).**
     - **Dòng thứ hai gồm `n` số nguyên dương a<sub>i</sub> ( -10<sup>9</sup> ≤ a<sub>i</sub> ≤ 10<sup>9</sup> ).**
 - **[Đầu ra]** 
-    - **Một dòng duy nhất là mảng `a` đã được sắp xếp.**
+    - **Một dòng duy nhất là số lần xóa ít nhất.**
 
 ## Ví dụ:
 - **[Input]**
-   - `10`
-   - `2 0 -5 8 -7 4 1 9 -8 0`
+   - `6`
+   - `-4 -5 1 2 -3 10`
 - **[Output]**
-   - `1 2 4 8 9 0 0 -5 -7 -8`
+   - `3`
+- **[Giải thích]**
+   - Lần lượt xóa các phần tử `-5, -4, 10`
 
 ## Giải bài tập
-   Hàm so sánh hai phần tử int Compare(a, b) :
-   - Trả về giá trị âm nếu `a < b`.
-   - Trả về giá trị dương nếu `a > b`.
-   - Trả về giá trị 0 nếu `a == b`.<br><br>
-   Xét hai số `a` và `b` :
-   - Nếu là hai số dương ( `a, b > 0` ) : số lớn hơn sẽ lớn hơn số còn lại.
-      - `a = 5` và `b = 7` : trả về -2 ( a < b ).
-      - `a = 6` và `b = 4` : trả về 2 ( a > b ).
-      - Như vậy ta trả về `a - b`.
-   - Còn lại : số bé hơn sẽ lớn hơn số còn lại.
-      - `a = -5` và `b = -7` : trả về -2 ( a < b ).
-      - `a = -3` và `b = 3` : trả về 6 ( a > b ).
-      -  `a = 0` và `b = -5` : trả về -5 ( a < b ).
-      -  `a = 3` và `b = 0` : trả về -3 ( a < b ).
-      -  Như vậy ta trả về `b - a`.
-   - Sử dụng các thuật toán có độ phức tạp `O(n log n)` để giải bài toán này.
+   Sắp xếp mảng tăng dần với thuật toán có độ phức tạp `O(n log n)`. Tạo một biến `sum` là tổng cách phần tử trong mảng.<br>
+   `L` là vị trí đầu và `R` là vị trí cuối mảng ( `L = 0` và `R = n - 1` ).
+   - Điều kiện dừng `left > right` :
+      - `sum > 0` : giảm `sum` đi a<sub>R</sub>, và xóa phần tử cuối `R--`, quay lại bước đầu và tiếp tục so sánh `sum`.
+      - `sum < 0` : giảm `sum` đi a<sub>L</sub>, và xóa phần tử đầu `L++`, quay lại bước đầu và tiếp tục so sánh `sum`.
+      - `sum = 0` : kết thúc bài toán, in ra giá trị `n - (right - left + 1)` ( `right - left + 1` là số phần tử trong đoạn [left, right] ).
    - **Độ phức tạp : `O(n log n)`**
