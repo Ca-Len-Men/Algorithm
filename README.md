@@ -18,6 +18,7 @@
 - [Gà con ăn thóc](https://github.com/Ca-Len-Men/Algorithm/tree/Learning-Test/Test%206)
 - [Cuộc thi](https://github.com/Ca-Len-Men/Algorithm/tree/Learning-Test/Test%208)
 - [Xóa phần tử](https://github.com/Ca-Len-Men/Algorithm/tree/Learning-Test/Test%2010)
+- [Cặp đôi đặc biệt](https://github.com/Ca-Len-Men/Algorithm/tree/Learning-Test/Test%2012)
 
 ## Hard
 - [Tìm kiếm trên cây nhị phân](https://github.com/Ca-Len-Men/Algorithm/tree/Learning-Test/Test%205)
