@@ -32,7 +32,7 @@
 
 ## Giải bài tập
    Xây dựng cây nhị phân như sau :
-   ![Binary Search Tree](https://github.com/Ca-Len-Men/Algorithm/blob/%C4%90%E1%BB%99-d%C3%A0i-con-d%E1%BB%91c/Test%205/Picture.png)
+   ![Binary Search Tree](https://github.com/Ca-Len-Men/Algorithm/blob/Learning-Test/Test%205/Picture.png)
    - Với `k = 1` :
         - Bắt đầu với nút 1 : k bé hơn nút 1 => tồn tại phần tử lớn hơn bằng k.
         - Kiểm tra nút 2 : k bé hơn nút 2 => đi vào nút 2
